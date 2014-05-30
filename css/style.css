@@ -1,0 +1,58 @@
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+body	{width:100%; min-height:100%; text-align:center;background-color:#fff; /*background-image:url("images/bg.png");background-repeat:repeat-x; background-position:bottom;*/ font-size:12px; margin:0;}
+a {text-decoration: underline; color:rgba(11,72,107,1); font-family:Arial;}
+img {border:0;padding:0; margin:0;}
+div {display:inline-block; border:0px solid yellow; overflow:hidden; text-align:left; font-size:12px;}
+td {vertical-align:top; border:0px;}
+ol li {line-height:16px;}
+
+
+body {font-family:Arial;}
+#form {width:600px;}
+.item {float:left; display:block;}
+h6 {float:left; width:150px; margin:0; display:block; }
+.input_panel {float:left; display:block; width:450px;}
+h1,h3 {box-sizing: border-box;}
+div {display:block;}
+p {font-size:16px;}
+label {font-size:12px; font-weight:normal}
+blockquote {width:500px; border:1px dotted #555; padding:20px; overflow:auto;}
+
+.yellow_bg {background:yellow}
+.blue_text   {color:blue}
+.green_text  {color:green}
+.red_text  {color:red}
+
+#main_wrapper {float:left; width:100%; box-sizing: border-box; height:auto; background:#c21b09; }
+#header {float:left; width:100%; box-sizing: border-box; height:100px; background:#222; background-position:center center; background-size: auto 100%; padding: 20px 0;}
+#header h1{color:#fff;}
+#nav {float:left; width:100%; box-sizing: border-box; height:43px; background:url('images/bg/bg_nav.png'); text-align:center;}
+#nav .inner {margin:auto; width:960px; padding:0 20px;}
+#nav a {float:left; float:left;}
+#nav a img {margin:3px 3px;}
+
+#section {float:left; width:100%; box-sizing: border-box; min-height:700px; background:#f1f1f1; text-align:center;}
+#section .inner { margin:auto; width:980px; /*background:#ffffff;*/}
+#section #left_panel {float:left; width:70%;}
+#section #demo_form, #section #message_box { width:85%; background:#fff; padding:20px; border:2px solid #555; border-radius:25px;}
+
+#section #right_panel {float:left; width:30%;}
+#article { padding:20px 20px 50px 20px; text-align:left;}
+#footer {float:left; width:100%; box-sizing: border-box; height:auto; background:rgba(11,72,107,1); background-position:center; text-align:center;}
+/*#footer .inner {margin:auto; width:960px; margin:20px 20px; color:#faedd9; text-align:left; font-size:12px; line-height:16px; font-family:Arial;}*/
+#footer .inner {margin:auto; width:960px; margin:20px 20px; color:#fff; text-align:left; font-size:12px; line-height:16px; font-family:Arial;}
+#footer .inner .left {float:left; width:800px;}
+#footer .inner .right {float:left; }
+
+/* lightbox Style */
+#dialog_box {width:500px; margin:0 auto; overflow:hidden;}
+#title_box {float:left; width:100%; background:#e69171; color:#fff; font-size:1em; font-weight:bold; padding:10px 0;}
+#content_box {float:left; width:100%; background:#fff; text-align:left; }
+#content_box ul {list-style-type:square; color:#e69171}
+#content_box li {color:#555;}
+#content_box #msg_title {background:#e69171;}
+#content_box #success_msg {width:460px; padding:20px; color:#555;}
+#lightbox {
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0; left:0; width:100%; height:100%; background:rgba(0,0,0, 0.5); text-align:center;}
+#lightbox p { text-align:right; color:#fff; margin-right:20px; font-size:12px;}
