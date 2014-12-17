@@ -3,169 +3,21 @@
 <head>
     <title>Validation with Lightbox = Soyo Solution</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<style>
-body {font-family:Arial;}
-#form {width:600px;}
-.item {float:left; display:block;}
-h6 {float:left; width:150px; margin:0; display:block; }
-.input_panel {float:left; display:block; width:450px;}
-
-
-/* lightbox Style */
-#dialog_box {width:500px; margin:0 auto; overflow:hidden;}
-#title_box {float:left; width:100%; background:#e69171; color:#fff; font-size:1em; font-weight:bold; padding:10px 0;}
-#content_box {float:left; width:100%; background:#fff; text-align:left; }
-#content_box ul {list-style-type:square; color:#e69171}
-#content_box li {color:#555;}
-#content_box #msg_title {background:#e69171;}
-#content_box #success_msg {width:460px; padding:20px; color:#555;}
-
-#lightbox {
-    position:fixed; /* keeps the lightbox window in the current viewport */
-    top:0; left:0; width:100%; height:100%; background:rgba(0,0,0, 0.5); text-align:center;}
-
-#lightbox p { text-align:right; color:#fff; margin-right:20px; font-size:12px;}
-</style>
-<script>
-//Helper
-function errorMsg(field_name, error_msg){
-    return {name:field_name, msg:error_msg, status:false }
-}
-
-Object.size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-
-Array.prototype.contains = function(element){
-    return this.indexOf(element) > -1;
-};
-
-/* Change the value BELOW */
-var checkItem = new Array();
-var errorMsgTitle = "Error";
-checkItem[0] = new errorMsg("firstname", "Title 1 is empty");
-checkItem[1] = new errorMsg("lastname", "You have fogotten fill in Title 2");
-checkItem[2] = new errorMsg("age", "Which is the range of your age ?");
-checkItem[3] = new errorMsg("gender", "Please select your gender");
-checkItem[4] = new errorMsg("service", "Which service you like most ?");
-var successMsgTitle = "Submitted";
-var successMsg = "Your application is submittted.";
-var itemAmount = Object.size(checkItem);
-var url = "";
-/* Change the value ABOVE */
-
-function checking(){
-    var msgContent ="";
-    var checker = false;
-    var notFalseChecker = false;
-    var err_record = new Array();
-    //Load input box's value
-    for (var i=0; i < itemAmount; i++){
-        var value = "";
-        err_record[i] = false;
-        value = $('#'+checkItem[i].name).val();
-        //Check the input box type: text / radio, checkbox 
-        if(typeof value != 'undefined'){ value = $('#'+checkItem[i].name).val();}
-        else{ 
-            //If is checkbox or radiobox, get the value.
-            if ($('form input[name='+checkItem[i].name+']:checked').val()){
-                value = $('input[name='+checkItem[i].name+']').attr("value");
-                console.log(checkItem[i].name+"checked:"+value);            
-            }else{value = "";}
-        }
-        if (value.length > 0){ err_record[i] = true;}
-        else {
-            msgContent += "<li>"+checkItem[i].msg+"</li>";
-            err_record[i] = false;
-            if (i == itemAmount-1){}
-        }
-    }
-    
-    checker = checkForAllSame_butNotFalse(err_record);
-    if ( checker == false) { displayErrorMsg(msgContent);} 
-    else { displaySuccessMsg();}    
-}//EOF of checking
-
-function checkForAllSame_butNotFalse(arr){
-    var x = arr[0];
-    for(var i=1;i<arr.length;i++){
-        if(x!=arr[i] || x!= true){return false;}
-    }
-    return true;
-}
-
-function displaySuccessMsg(){
-    $("#title_box").css("background", "#65B688");
-    $("#message_box").html('<div id="success_msg">'+successMsg+'</div>');
-    append_lightbox(successMsgTitle, '<div id="success_msg">'+successMsg+'</div>');
-    return true;
-}
-
-function displayErrorMsg(msg){
-    $("#title_box").css("background", "#e69171");
-    $("#modal-dialog-title").text("Error Message");
-    $("#message_box").html(msg);
-    append_lightbox(errorMsgTitle, "<ul>"+msg+"</ul>");
-    $("#submit").attr("href", "#small_modal");
-    return false;
-}
-
-//jQuery(document).ready(function($) {    
-    function append_lightbox(title, msg){
-        var msg ;
-         
-        /*  If the lightbox window HTML already exists in document, 
-        change the img src to to match the href of whatever link was clicked
-        If the lightbox window HTML doesn't exists, create it and insert it.
-        (This will only happen the first time around) */
-        
-        if ($('#lightbox').length > 0) { // #lightbox exists
-             
-            //place href as img src value
-            $('#content_box').html(msg);
-            //show lightbox window - you could use .show('fast') for a transition
-            $('#lightbox').show();
-        }
-         
-        else { //#lightbox does not exist - create and insert (runs 1st time only)
-             
-            //create HTML markup for lightbox window
-            var lightbox = 
-            '<div id="lightbox">' +
-                '<div id="dialog_box">'+
-                '<div id="title_box">E'+title+'</div>'+
-                '<div id="content_box">' + //insert clicked link's href into img src
-                    '<div id="msg_title">Error Msg</div>'+
-                    '<div id="detailed_msg">'
-                +msg+
-                    '</div>' +    
-                '</div>' +    
-                '</div>' +
-            '</div>';
-                 
-            //insert lightbox HTML into page
-            $('body').append(lightbox);
-            $('#title_box').append(title);            
-        }
-         
-    }
-    
-jQuery(document).ready(function($) {
-    //Click anywhere on the page to get rid of lightbox window
-    $('#lightbox').on('click', function() {
-        $('#lightbox').hide();
-    });
-});
-</script>
-
+    <script type="text/javascript" src="scripts/jquery-valid-lightbox.js"></script>
+    <link href="css/jquery-valid-lightbox.css" rel="stylesheet" type="text/css" />
+    <style>
+    /*Style for this demo page.*/
+    body {font-family:Arial;}
+    #form {width:600px;}
+    .item {float:left; display:block;}
+    h6 {float:left; width:150px; margin:0; display:block; }
+    .input_panel {float:left; display:block; width:450px; margin:5px 0;}
+    #message_box {margin:50px 0 0 0;}
+    </style>
 </head>
 <body>
 <h1>Example</h1>
-<form id="form" action="javascript:void(0)" onsubmit="return checking();">
+<form id="form" action="javascript:void(0)" onsubmit="return validation_check();">
 <div class="item">
     <h6><label>First Name</label></h6>
     <div class="input_panel"><input type="text" id="firstname" name="firstname"></div>
@@ -197,21 +49,21 @@ jQuery(document).ready(function($) {
 <div class="item">
     <h6><label>Service you like</label></h6>
     <div class="input_panel">
-        <input type="checkbox" name="service" value="Bike">I have a bike<br>
-        <input type="checkbox" name="service" value="Car">I have a car  
+        <input type="checkbox" name="service" value="design">Design<br>
+        <input type="checkbox" name="service" value="cs">Customer Service
+    </div>
+</div>
+<div class="item">
+    <h6><label>Where to know us</label></h6>
+    <div class="input_panel">
+        <input type="checkbox" name="where_from" value="newspaper">newspaper<br>
+        <input type="checkbox" name="where_from" value="friend">friend<br>
+        <input type="checkbox" name="where_from" value="internet">internet
     </div>
 </div>
 <input id="submit" type="submit" value="Submit form" class="btn btn-primary" data-toggle="modal" role="button">
 </form>
 
-<div id="lightbox" style="display:none;">
-    <p>Click to close</p>
-    <div id="dialog_box">
-    <div id="title_box"></div>
-    <div id="content_box">
-    </div>
-    </div>
-</div>
 
 <div id="message_box"></div>
 
