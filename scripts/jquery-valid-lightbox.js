@@ -1,8 +1,46 @@
-//Helper
-function errorMsg(field_name, error_msg){
-    return {name:field_name, msg:error_msg, status:false }
-}
+/*!
+* Validation-with-lightbox v1.1
+* https://github.com/soyosolution/validation-with-lightbox
+* http://tool.soyosolution.com/validation-with-lightbox/
+*
+* Includes jQuery Library
+* http://www.jquery.com/
+*
+* Copyright 2014 Soyo Solution Company. and other contributors
+* Released under the MIT license
+* http://jquery.org/license
+*
+* Date: 2014-12-17
+* Current file name : jquery-valid-lightbox.js
+*/
 
+var config = {
+    "title-message"      : {
+        "success_title"  :"Validation Success",                              //Lightbox title when validation was success.
+        "error_title"    :"Error!"                                 //Lightbox title when validation was fail.
+    },
+    "success-message"    :"Your application is submittted.",       //Lightbox content when validation was succes.
+    "error-message"      : [
+        {"name"      :"firstname",                            //1st input field name (name bt not id)
+         "err_msg"   :"Title 1 is empty"},                    //Related error (1st input field) if validation was incorrect.
+        {"name"      :"lastname" ,                            //2st input field name
+         "err_msg"   :"You have fogotten fill in Title 2"},   //Related error (2st input field) if validation was incorrect.
+        {"name"      :"age",                                  //3st input field name
+         "err_msg"   :"Which is the range of your age"},      //Related error (3st input field) if validation was incorrect.
+        {"name"      :"gender",                               //4st input field name
+         "err_msg"   :"Please select your gender"},           //Related error (4st input field) if validation was incorrect.
+        {"name"      :"service"  ,                            //5st input field name
+         "err_msg"   :"Which service you like most ?"},       //Related error (5st input field) if validation was incorrect.
+        {"name"      :"where_from"  ,                         //6st input field name
+         "err_msg"   :"You havn't fill in where to know us."} //Related error (6st input field) if validation was incorrect.         
+    ],
+    "footer_close_btn_text" :"Close",     //Close button tex on the bottom-right corner of pop-up message box
+    "close_btn_icon"        :"X",         //Close button icon on the top-right corner of pop-up message box
+};
+
+/*================================
+    Javascript Helper function
+  ================================ */
 Object.size = function(obj) {
     var size = 0, key;
     for (key in obj) {
@@ -11,35 +49,43 @@ Object.size = function(obj) {
     return size;
 };
 
-Array.prototype.contains = function(element){
-    return this.indexOf(element) > -1;
-};
+/*================================
+    Prepare to load data
+  ================================ */
+var checkItemAmount = Object.size(config["error-message"]);
+var checkItem = jQuery.map(config["error-message"], function(value, index) {
+    return [value];
+});
+//console.log(checkItem);
 
-
-function checking(){
+/*================================
+    Make validation
+  ================================ */
+function validation_check(){
     var msgContent ="";
     var checker = false;
     var notFalseChecker = false;
     var err_record = new Array();
     //Load input box's value
-    for (var i=0; i < itemAmount; i++){
+    for (var i=0; i < checkItemAmount; i++){
+        //console.log("checkItem[i].name :"+checkItem[i].name);
         var value = "";
         err_record[i] = false;
-        value = $('#'+checkItem[i].name).val();
+        value = jQuery('#'+checkItem[i].name).val();
         //Check the input box type: text / radio, checkbox 
-        if(typeof value != 'undefined'){ value = $('#'+checkItem[i].name).val();}
+        if(typeof value != 'undefined'){ value = jQuery('#'+checkItem[i].name).val();}
         else{ 
             //If is checkbox or radiobox, get the value.
-            if ($('input[name='+checkItem[i].name+']:checked').val()){
-                value = $('input[name='+checkItem[i].name+']').attr("value");
-                console.log(checkItem[i].name+"checked:"+value);            
+            if (jQuery('input[name='+checkItem[i].name+']:checked').val()){
+                value = jQuery('input[name='+checkItem[i].name+']').attr("value");
+                //console.log(checkItem[i].name+"checked:"+value);            
             }else{value = "";}
         }
         if (value.length > 0){ err_record[i] = true;}
         else {
-            msgContent += "<li>"+checkItem[i].msg+"</li>";
+            msgContent += "<li>"+checkItem[i].err_msg+"</li>";
             err_record[i] = false;
-            if (i == itemAmount-1){}
+            if (i == checkItemAmount-1){}
         }
     }
     
@@ -56,61 +102,74 @@ function checkForAllSame_butNotFalse(arr){
     return true;
 }
 
+/*================================
+    Display Error Message
+  ================================ */
 function displaySuccessMsg(){
-    $("#title_box").css("background", "#65B688");
-    $("#message_box").html('<div id="success_msg">'+successMsg+'</div>');
-    append_lightbox(successMsgTitle, '<div id="success_msg">'+successMsg+'</div>');
+    jQuery("#title_box").css("background", "#65B688");
+    jQuery("#message_box").html('<div id="success_msg">'+config["success-message"]+'</div>');
+    append_lightbox(config["title-message"].success_title, '<div id="success_msg">'+config["title-message"].success_title+'</div>');
+    jQuery("#btn_close_bottom").css("background", "#65B688");
     return true;
 }
 
 function displayErrorMsg(msg){
-    $("#title_box").css("background", "#e69171");
-    $("#modal-dialog-title").text("Error Message");
-    $("#message_box").html(msg);
-    append_lightbox(errorMsgTitle, "<ul>"+msg+"</ul>");
-    $("#submit").attr("href", "#small_modal");
+    jQuery("#title_box").css("background", "#e69171");
+    jQuery("#message_box").html(msg);
+    append_lightbox(config["title-message"].error_title, "<ul>"+msg+"</ul>");
+    jQuery("#btn_close_bottom").css("background", "#e69171");
+    //jQuery("#submit").attr("href", "#small_modal");
     return false;
 }
 
     function append_lightbox(title, msg){
-        //prevent default action (hyperlink)
-        //e.preventDefault();
-        //Get clicked link href
-        //var image_href = $(this).attr("href");
         var msg ;
-        /*  
-        If the lightbox window HTML already exists in document, 
+         
+        /*  If the lightbox window HTML already exists in document, 
         change the img src to to match the href of whatever link was clicked
         If the lightbox window HTML doesn't exists, create it and insert it.
         (This will only happen the first time around) */
-        if ($('#lightbox').length > 0) { // #lightbox exists
+        
+        if (jQuery('#lightbox').length > 0) { // #lightbox exists
+             
             //place href as img src value
-            //$('#content').html('<img src="' + image_href + '" />');
-            $('#content_box').html(msg);
+            jQuery('#content_box').html(msg);
             //show lightbox window - you could use .show('fast') for a transition
-            $('#lightbox').show();
+            jQuery('#lightbox').show();
         }
+         
         else { //#lightbox does not exist - create and insert (runs 1st time only)
+             
             //create HTML markup for lightbox window
             var lightbox = 
             '<div id="lightbox">' +
+                '<div id="message_box_outer">'+
                 '<div id="dialog_box">'+
-                '<div id="title_box">E'+title+'</div>'+
-                '<div id="content_box">' + //insert clicked link's href into img src
-                    '<div id="msg_title">Error Msg</div>'+
-                    '<div id="detailed_msg">'+msg+'</div>' +    
-                '</div>' +    
+                    '<div id="title_box"><div id="title_line">'+title+'</div><div id="btn_close_top" onclick="hide_lightbox()">'+config.close_btn_icon+'</div></div>'+
+                    '<div id="content_box">' + 
+                            msg+
+                    '</div>' +    
+                    '<div id="msg_footer"><div id="btn_close_bottom" class="lightbox_footer_close_btn" onclick="hide_lightbox()">'+config.footer_close_btn_text+'</div>'+
+                '</div>' +
                 '</div>' +
             '</div>';
+                 
             //insert lightbox HTML into page
-            $('body').append(lightbox);
-            $('#title_box').append(title);            
+            jQuery('body').append(lightbox);
+            //jQuery('#title_box .title_line').append(title);            
         }
+         
     }
-    
-jQuery(document).ready(function($) {
-    //Click anywhere on the page to get rid of lightbox window
-    $('#lightbox').on('click', function() {
-        $('#lightbox').hide();
-    });
+
+/*================================
+    Interactive Action
+  ================================ */
+jQuery( "#lightbox" ).click(function() {
+    hide_lightbox();
 });
+
+function hide_lightbox() {
+    jQuery('#lightbox').css("display","none");
+    //console("#lightbox_bottom Clicked");
+}
+
