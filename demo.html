@@ -3,8 +3,8 @@
 <head>
     <title>Validation with Lightbox = Soyo Solution</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery-valid-lightbox.js"></script>
-    <link href="css/jquery-valid-lightbox.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="scripts/jquery-valid-lightbox-v1.1.js"></script>
+    <link href="css/jquery-valid-lightbox-v1_1.css" rel="stylesheet" type="text/css" />
     <style>
     /*Style for this demo page.*/
     body {font-family:Arial;}
@@ -17,7 +17,7 @@
 </head>
 <body>
 <h1>Example</h1>
-<form id="form" action="javascript:void(0)" onsubmit="return validation_check();">
+<form name="demo_form" method="POST" action="javascript:void(0)" onsubmit="return validation_check('success.html');">
 <div class="item">
     <h6><label>First Name</label></h6>
     <div class="input_panel"><input type="text" id="firstname" name="firstname"></div>
@@ -61,7 +61,11 @@
         <input type="checkbox" name="where_from" value="internet">internet
     </div>
 </div>
-<input id="submit" type="submit" value="Submit form" class="btn btn-primary" data-toggle="modal" role="button">
+<div class="item">
+    <div class="input_panel">
+    <input id="submit" type="submit" value="Submit form" class="btn btn-primary" data-toggle="modal" role="button">
+    </div>
+</div>
 </form>
 
 
@@ -75,5 +79,5 @@ Soyo Solution:
 http://www.soyosolution.com
 
 Styled validation with lightbox demo link :
-http://tool.soyosolution.com/validation-with-lightbox/index.html
+http://tool.soyosolution.com/validation-with-lightbox/index.php
 -->
