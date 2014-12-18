@@ -1,5 +1,5 @@
-validation-with-lightbox
-========================
+validation-with-lightbox-v1.1
+=========================
 
 Execute jQuery validation if submitting a form , display error and success message with lightbox, files which are included in this project:
 
@@ -7,43 +7,56 @@ Execute jQuery validation if submitting a form , display error and success messa
 <li> basic_demo.html</li>
 <li> index.html</li>
 <li> css/<br />
-   a) style.css</li>
+   a) jquery-valid-lightbox-v1_1.css</li>
+   b) style.css</li>
 <li> scripts/
-   a) jquery-valid-lightbox.js<br />
-   b) jquery-valid-lightbox.min.js</li>
+   a) jquery-valid-lightbox-v1.1.js<br />
 </ol>
 
 <hr />
 <p><b>1) basic_demo.html</b><br />
-Combined all html, css, javascript into a html file named basic_demo.html.<br />
-This file can validate the input field and display error and success message with lightbox.</p>
+Demo Page with a few lines of css style<br />
+This file can validate the input field and display error and success message with lightbox.<br />
+http://tool.soyosolution.com/validation-with-lightbox/demo.html</p>
 
 <p><b>2) index.html</b><br />
 HTML code of this page, for demo to public :<br />
 http://tool.soyosolution.com/validation-with-lightbox/index.html</p>
 
-<p><b>3) css (folder)/style.css</b><br />
-CSS code of this page, for demo to public :<br />
+<p><b>3a) css (folder)/jquery-valid-lightbox-v1_1.css</b><br />
+CSS style code of this page, for demo to public :<br />
 http://tool.soyosolution.com/validation-with-lightbox/index.html</p>
 
-<p><b>4a) scripts/jquery-valid-lightbox.js</b><br />
+<p><b>3b) css (folder)/style.css</b><br />
+CSS style code of this page, for demo to public, if you want apply this plugin into your code, you can apply jquery-valid-lightbox-v1_1.css only:<br />
+http://tool.soyosolution.com/validation-with-lightbox/index.html</p>
+
+<p><b>4a) scripts/jquery-valid-lightbox-v1.1.js<</b><br />
 This is uncompressed jquery version</p>
 
-<p><b>4b) scripts/jquery-valid-lightbox.min.js</b><br />
-This is minified jquery version</p>
+<hr />
+<h2>Update</h2>
+=== 17/12/2014 ===<br />
+Fixed big bugs at IE7&IE8 and rewrote some function for better code.
+- Rewrite some function for more easy to config.
+- Bug fixed : No lightbox background to be displayed at IE7 and IE8.
+- Add a "x" button at message box top-right corner for close the message box.
+- Add a "close" button at message box botttom-right corner for close the message box.
+- Move error message from hard-code valuables to an object for configing easier
 
+=== 29/04/2014 ===<br />
+Validation-with-lightbox release
 <hr />
 
 <h2>HOW TO USE</h2>
-
 <h3>HTML part</h3>
 There is 2 parts of HTML: form and dialog lightbox, for the form part, beware of these 3 points:
 
-You must contain action="javascript:void(0)" onsubmit="return checking();" in the form tab. action="javascript:void(0)" is for stop submiiting the form, onsubmit="return checking(); mean run the javascript function named checking()
+You must contain action="javascript:void(0)" onsubmit="return checking('your_url');" in the form tab. action="javascript:void(0)" is for stop submiiting the form, onsubmit="return checking('your_url'); mean run the javascript function named checking() and pass the form submittion target to the javascript funvtion.
 Text box are idenified with the id name.
 Radio and checkbox are idenified with the input flied name.
 <pre>
-&lt;form id="form" action="javascript:void(0)" onsubmit="return checking();"&gt;
+&lt;form name="demo_form" method="POST" action="javascript:void(0)" onsubmit="return checking('success.html');"&gt;
     &lt;div class="item"&gt;
         &lt;h6&gt;&lt;label&gt;First Name&lt;/label&gt;&lt;/h6&gt;
         &lt;div class="input_panel"&gt;&lt;input type="text" id="firstname" name="firstname"&gt;&lt;/div&gt;
@@ -79,6 +92,14 @@ Radio and checkbox are idenified with the input flied name.
             &lt;input type="checkbox" name="service" value="Car"&gt;car  
         &lt;/div&gt;
     &lt;/div&gt;
+    &lt;div class="item"&gt;
+    &lt;h6&gt;&lt;label&gt;Where to know us&lt;/label&gt;&lt;/h6&gt;
+    &lt;div class="input_panel"&gt;
+        &lt;input type="checkbox" name="where_from" value="newspaper"&gt;newspaper&lt;br&gt;
+        &lt;input type="checkbox" name="where_from" value="friend"&gt;friend&lt;br&gt;
+        &lt;input type="checkbox" name="where_from" value="internet"&gt;internet
+    &lt;div /div&gt;
+</div>    
     &lt;input id="submit" type="submit" value="Submit form" &gt;
     &lt;br /&gt;&lt;br /&gt;
 &lt;/form&gt;
@@ -95,50 +116,46 @@ Radio and checkbox are idenified with the input flied name.
 </pre>
 
 <h3>CSS PART</h3>
-<p>We need these CSS is for creating the lightbox dialog:</p>
+<p>You can import the file "jquery-valid-lightbox-v1_1.css" only for apply the styles:
+We need these CSS is for creating the lightbox dialog:</p>
 <pre>
-&lt;style type="text/css"&gt;
-    /* lightbox Style */
-    #dialog_box {width:500px; margin:0 auto; overflow:hidden;}
-    #title_box {float:left; width:100%; background:#e69171; color:#fff; font-size:1em; font-weight:bold; padding:10px 0;}
-    #content_box {float:left; width:100%; background:#fff; text-align:left; }
-    #content_box ul {list-style-type:square; color:#e69171}
-    #content_box li {color:#555;}
-    #content_box #msg_title {background:#e69171;}
-    #content_box #success_msg {width:460px; padding:20px; color:#555;}
-    #lightbox {
-        position:fixed; /* keeps the lightbox window in the current viewport */
-        top:0; left:0; width:100%; height:100%; background:rgba(0,0,0, 0.5); text-align:center;}
-    #lightbox p { text-align:right; color:#fff; margin-right:20px; font-size:12px;}
-&lt;/style&gt;
+&lt;link href="css/jquery-valid-lightbox-v1_1.css" rel="stylesheet" type="text/css" /&gt;
 </pre>
 
 <h3>Javascript part</h3>
 <p>You need to import the jquery library first, and than import the javascript file of jquery-valid-lightbox plugin.</p>
 <pre>
 &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="scripts/jquery-valid-lightbox.min.js"&gt;&lt;/script&gt;
-And than add the sentences below for config the input field name and the error message. For an example, there are 5 group of input fields in the demo example:
+&lt;script type="text/javascript" src="scripts/jquery-valid-lightbox-v1.1.js"&gt;&lt;/script&gt;
+</pre>
+And than Config the sentences below in jquery-valid-lightbox-v1.1.js:
 
-checkItem[array_index] = new errorMsg("field name", "error message");
-Array index	:	Start from zero, and should be increased in alphabetical order.
-Field name	:	Id name of the input field or field group.
-Error message	:	Error message you want to display.
-&lt;script type="text/javascript"&gt;
-/* Change the value BELOW */
-var checkItem = new Array();
-var errorMsgTitle = "Error";
-checkItem[0] = new errorMsg("firstname", "Title 1 is empty");
-checkItem[1] = new errorMsg("lastname", "You have fogotten fill in Title 2");
-checkItem[2] = new errorMsg("age", "Which is the range of your age ?");
-checkItem[3] = new errorMsg("gender", "Please select your gender");
-checkItem[4] = new errorMsg("service", "Which service you like most ?");
-var successMsgTitle = "Submitted";
-var successMsg = "Your application is submittted.";
-var itemAmount = Object.size(checkItem);
-var url = "";
-/* Change the value ABOVE */
-&lt;/script&gt;
+<pre>
+var config = {
+    "form_name"          : "demo_form",                       //Your form name, not id name
+    "submit_form"        : true,                              //"true" is submit form, "false" would pop-up an error message.
+    "title-message"      : {
+        "success_title"  :"Validation Success",               //Lightbox title when validation was success.
+        "error_title"    :"Error!"                            //Lightbox title when validation was fail.
+    },
+    "success-message"    :"Your application is submittted.",  //Lightbox content when validation was succes.
+    "error-message"      : [
+        {"name"      :"firstname",                            //1st input field name (name bt not id)
+         "err_msg"   :"Title 1 is empty"},                    //Related error (1st input field) if validation was incorrect.
+        {"name"      :"lastname" ,                            //2st input field name
+         "err_msg"   :"You have fogotten fill in Title 2"},   //Related error (2st input field) if validation was incorrect.
+        {"name"      :"age",                                  //3st input field name
+         "err_msg"   :"Which is the range of your age"},      //Related error (3st input field) if validation was incorrect.
+        {"name"      :"gender",                               //4st input field name
+         "err_msg"   :"Please select your gender"},           //Related error (4st input field) if validation was incorrect.
+        {"name"      :"service"  ,                            //5st input field name
+         "err_msg"   :"Which service you like most ?"},       //Related error (5st input field) if validation was incorrect.
+        {"name"      :"where_from"  ,                         //6st input field name
+         "err_msg"   :"You havn't fill in where to know us."} //Related error (6st input field) if validation was incorrect.         
+    ],
+    "footer_close_btn_text" :"Close",     //Close button tex on the bottom-right corner of pop-up message box
+    "close_btn_icon"        :"X",         //Close button icon on the top-right corner of pop-up message box
+};
 </pre>
 <h2>DEMO SITE</h2>
 For demo, please visit:
