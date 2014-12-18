@@ -12,7 +12,7 @@
 *
 * Date: 2014-12-17
 * =============================================
-* Current file name : jquery-valid-lightbox.css
+* Current file name : jquery-valid-lightbox-v1.1.css
 */
 
 /*globle*/
@@ -23,7 +23,7 @@
     display: table;
     }
 #message_box_outer { vertical-align:middle; display: table-cell;}
-#dialog_box {width:600px; margin:0 auto; overflow:hidden;}
+#dialog_box {width:600px; margin:0 auto; overflow:hidden; padding: 0 0 40% 0;}
 
 /*title*/
 #dialog_box #title_box {float:left; width:100%; background:#e69171; color:#fff; font-size:1em; font-weight:bold;}
