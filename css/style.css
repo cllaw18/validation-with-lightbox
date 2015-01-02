@@ -10,19 +10,18 @@
 * Released under the MIT license
 * http://jquery.org/license
 *
-* Date: 2014-12-17
+* Date: 2014-01-02
 * =============================================
 * Current file name : style.css
 */
 
 article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
-body	{width:100%; min-height:100%; text-align:center;background-color:#fff; 
-/*background-image:url("images/bg.png");background-repeat:repeat-x; background-position:bottom;*/ font-size:12px; margin:0;}
+body	{width:100%; min-height:100%; text-align:center;background-color:#fff; }
 a {text-decoration: underline; color:rgba(11,72,107,1); font-family:Arial;}
 img {border:0;padding:0; margin:0;}
 div {display:inline-block; border:0px solid yellow; overflow:hidden; text-align:left; font-size:12px;}
 td {vertical-align:top; border:0px;}
-ol li {line-height:16px;}
+ol li {line-height:25px; font-size:16px;}
 
 body {font-family:Arial;}
 #form {width:600px;}
@@ -31,7 +30,7 @@ h6 {float:left; width:150px; margin:0; display:block; }
 .input_panel {float:left; display:block; width:450px;}
 h1,h3 {box-sizing: border-box;}
 div {display:block;}
-p {font-size:16px;}
+p {font-size:16px; line-height: 25px;}
 label {font-size:12px; font-weight:normal}
 blockquote {width:650px; border:1px dotted #555; padding:20px; overflow:auto;}
 table {}
@@ -52,14 +51,13 @@ table td {border:1px dotted #ccc;}
 #nav a img {margin:3px 3px;}
 
 #section {float:left; width:100%; box-sizing: border-box; min-height:700px; background:#f1f1f1; text-align:center;}
-#section .inner { margin:auto; width:980px; /*background:#ffffff;*/}
+#section .inner { margin:auto; width:980px;}
 #section #left_panel {float:left; width:80%;}
 #section #demo_form, #section #message_box { width:85%; background:#fff; padding:20px; border:2px solid #555; border-radius:25px;}
 
 #section #right_panel {float:left; width:20%;}
 #article { padding:20px 20px 50px 20px; text-align:left;}
-#footer {float:left; width:100%; box-sizing: border-box; height:auto; background:rgba(11,72,107,1); background-position:center; text-align:center;}
-/*#footer .inner {margin:auto; width:960px; margin:20px 20px; color:#faedd9; text-align:left; font-size:12px; line-height:16px; font-family:Arial;}*/
+#footer {float:left; width:100%; box-sizing: border-box; height:auto; background:#0b486b; background-position:center; text-align:center;}
 #footer .inner {margin:auto; width:960px; margin:20px 20px; color:#fff; text-align:left; font-size:12px; line-height:16px; font-family:Arial;}
 #footer .inner .left {float:left; width:800px;}
 #footer .inner .right {float:left; }
