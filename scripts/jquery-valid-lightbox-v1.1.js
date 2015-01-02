@@ -6,20 +6,24 @@
 * Includes jQuery Library
 * http://www.jquery.com/
 *
-* Copyright 2014 Soyo Solution Company. and other contributors
+* Copyright 2014-2014 Soyo Solution Company. and other contributors
 * Released under the MIT license
 * http://jquery.org/license
 *
-* Date: 2014-12-17
-* Current file name : jquery-valid-lightbox.js
+* Date: 2014-01-02
 */
 
+/*================================
+    For developer to config
+  ================================ */
 var config = {
+    "form_name"          : "demo_form",                       //Your form name, not id name
+    "submit_form"        : true,                              //"true" is submit form, "false" would pop-up an error message.
     "title-message"      : {
-        "success_title"  :"Validation Success",                              //Lightbox title when validation was success.
-        "error_title"    :"Error!"                                 //Lightbox title when validation was fail.
+        "success_title"  :"Validation Success",               //Lightbox title when validation was success.
+        "error_title"    :"Error!"                            //Lightbox title when validation was fail.
     },
-    "success-message"    :"Your application is submittted.",       //Lightbox content when validation was succes.
+    "success-message"    :"Your application is submittted.",  //Lightbox content when validation was succes.
     "error-message"      : [
         {"name"      :"firstname",                            //1st input field name (name bt not id)
          "err_msg"   :"Title 1 is empty"},                    //Related error (1st input field) if validation was incorrect.
@@ -61,7 +65,7 @@ var checkItem = jQuery.map(config["error-message"], function(value, index) {
 /*================================
     Make validation
   ================================ */
-function validation_check(){
+function validation_check(url){
     var msgContent ="";
     var checker = false;
     var notFalseChecker = false;
@@ -91,7 +95,14 @@ function validation_check(){
     
     checker = checkForAllSame_butNotFalse(err_record);
     if ( checker == false) { displayErrorMsg(msgContent);} 
-    else { displaySuccessMsg();}    
+    else { 
+        if(config.submit_form){
+            document.forms[0].action = url;
+            document.forms[config.form_name].submit();
+        }else{
+            displaySuccessMsg();        
+        }
+    }    
 }//EOF of checking
 
 function checkForAllSame_butNotFalse(arr){
@@ -118,7 +129,6 @@ function displayErrorMsg(msg){
     jQuery("#message_box").html(msg);
     append_lightbox(config["title-message"].error_title, "<ul>"+msg+"</ul>");
     jQuery("#btn_close_bottom").css("background", "#e69171");
-    //jQuery("#submit").attr("href", "#small_modal");
     return false;
 }
 
@@ -155,8 +165,7 @@ function displayErrorMsg(msg){
             '</div>';
                  
             //insert lightbox HTML into page
-            jQuery('body').append(lightbox);
-            //jQuery('#title_box .title_line').append(title);            
+            jQuery('body').append(lightbox);      
         }
          
     }
@@ -164,12 +173,13 @@ function displayErrorMsg(msg){
 /*================================
     Interactive Action
   ================================ */
-jQuery( "#lightbox" ).click(function() {
-    hide_lightbox();
+jQuery( document ).ready(function() {
+    $('body').on('click','#lightbox, #message_box_outer', function () {
+        hide_lightbox();
+    });    
 });
 
 function hide_lightbox() {
     jQuery('#lightbox').css("display","none");
-    //console("#lightbox_bottom Clicked");
 }
 
