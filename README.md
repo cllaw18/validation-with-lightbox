@@ -7,9 +7,9 @@ Execute jQuery validation if submitting a form , display error and success messa
 <li> demo.html</li>
 <li> success.html</li>
 <li> css/<br />
-   a) jquery-valid-lightbox-v1_1.css</li>
+   a) jquery-valid-lightbox-v1_1.css<br />
    b) style.css</li>
-<li> scripts/
+<li> scripts/<br />
    a) jquery-valid-lightbox-v1.1.js<br />
 </ol>
 
@@ -36,6 +36,11 @@ All javascript was placing in this file.</p>
 
 <hr />
 <h2>Update</h2>
+=== 02/01/2015 ===<br />
+- If there is too much error messages (the list of message is more than 500px height), use a scroll bar to display  message content.
+- Change the position where the message box to display (5% height of browser screen height).
+- Fixed bug: IE7, IE8 and Firefox can’t click the grid layer to close pop up message box.
+
 === 18/12/2014 ===<br />
 - Updated the pop-up message box position.
 
