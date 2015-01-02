@@ -10,7 +10,7 @@
 * Released under the MIT license
 * http://jquery.org/license
 *
-* Date: 2014-12-17
+* Date: 2014-01-02
 * =============================================
 * Current file name : jquery-valid-lightbox-v1.1.css
 */
@@ -20,10 +20,10 @@
     position:fixed; /* keeps the lightbox window in the current viewport */
     top:0; left:0; width:100%; height:100%; background-image: url(data:application/octet-stream;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTFH80I3AAAADUlEQVQYV2NgYGCoBwAAhACAEozAVQAAAABJRU5ErkJggg==); 
     text-align:center;
-    display: table;
+    display: block;
     }
-#message_box_outer { vertical-align:middle; display: table-cell;}
-#dialog_box {width:600px; margin:0 auto; overflow:hidden; padding: 0 0 40% 0;}
+#message_box_outer { vertical-align:middle; display: block; margin:5% auto auto auto;}
+#dialog_box {width:600px; margin:0 auto; overflow:hidden; padding: 0 0 0 0;}
 
 /*title*/
 #dialog_box #title_box {float:left; width:100%; background:#e69171; color:#fff; font-size:1em; font-weight:bold;}
@@ -32,7 +32,7 @@
 #dialog_box #title_box #btn_close_top:hover {cursor:pointer;}
  dialog_box #title_box #btn_close_top:active {position:relative;	top:1px;}
 /*content*/
-#dialog_box #content_box {float:left; width:100%; background:#fff; text-align:left; }
+#dialog_box #content_box {float:left; width:100%; background:#fff; text-align:left; max-height: 500px; overflow: auto;}
 #dialog_box #content_box ul {list-style-type:square; color:#e69171}
 #dialog_box #content_box li {color:#555;}
 #dialog_box #content_box #msg_title {background:#e69171;}
