@@ -5,7 +5,7 @@ validation-with-lightbox-v1.1
 
 1.  css/  
      1. jquery-valid-lightbox-v1_1.css  
-     2. style.css
+     2. demo.css
 2.  demo/  
      1. html  
          1. demo.html  
@@ -22,7 +22,7 @@ validation-with-lightbox-v1.1
  CSS style code of this page, for demo to public :  
  http://tool.soyosolution.com/validation-with-lightbox/index.html
 
-**1ii) css (folder)/style.css**<br/>
+**1ii) css (folder)/demo.css**<br/>
  CSS style code of this page, for demo to public, if you want apply this plugin into your code, you can apply jquery-valid-lightbox-v1_1.css only:
  http://tool.soyosolution.com/validation-with-lightbox/index.html
 
@@ -54,7 +54,7 @@ validation-with-lightbox-v1.1
  There is HTML part and beware of these 3 points:
 
  You must contain `action="javascript:void(0)" onsubmit="return checking('your_url');"` in the form tab. action="javascript:void(0)" is for stop submiiting the form, onsubmit="return checking('your_url'); mean run the javascript function named checking() and pass the form submittion target to the javascript funvtion.
- Text box are idenified with the id name.
+ Text box are idenified with the id name.sty
  Radio and checkbox are idenified with the input flied name.
  
 ```
