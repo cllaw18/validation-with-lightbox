@@ -19,29 +19,26 @@ validation-with-lightbox-v1.1
 
 * * *
 **1i) css (folder)/jquery-valid-lightbox-v1_1.css**<br/>
- CSS style code of this page, for demo to public :  
- http://tool.soyosolution.com/validation-with-lightbox/index.html
+ CSS style code of this page, for demo to public
 
 **1ii) css (folder)/demo.css**<br/>
  CSS style code of this page, for demo to public, if you want apply this plugin into your code, you can apply jquery-valid-lightbox-v1_1.css only:
- http://tool.soyosolution.com/validation-with-lightbox/index.html
-
-**2ia) css (folder)/html(folder)/demo.html**<br/>
- Simple demo page of without interface style in HTML version
- http://tool.soyosolution.com/validation-with-lightbox/index.html
-
-**2ib) css (folder)/html(folder)/index.html**<br/>
- HTML version of the offical demo page:
- http://tool.soyosolution.com/validation-with-lightbox/index.html 
  
-**2ic) css (folder)/html(folder)/success.html**<br/>
+**2ia) demo(folder)/html(folder)/demo.html**<br/>
+ Simple demo page of without interface style in HTML version
+ http://tool.soyosolution.com/validation-with-lightbox/demo/html/demo.html
+
+**2ib) demo(folder)/html(folder)/index.html**<br/>
+ HTML version of the offical demo page
+ 
+**2ic) demo(folder)/html(folder)/success.html**<br/>
  A webpage with the sentance showing form submittion suceess only.
  
-**2iia) css (folder)/php(folder)/index.php**<br/>
+**2iia) demo(folder)/php(folder)/index.php**<br/>
  HTML version of the offical demo page:
  http://tool.soyosolution.com/validation-with-lightbox/index.html 
 
-**2iib) css (folder)/php(folder)/success.php**<br/>
+**2iib) demo(folder)/php(folder)/success.php**<br/>
  That's what you see at offical demo site , after sumittted the form, shows what you have filled in the input with php.
  
 **3a) scripts/jquery-valid-lightbox-v1.1.js**<br/>
@@ -201,7 +198,7 @@ An overview of the value for config:
 
 ## DEMO SITE
 
- For demo, please visit: http://tool.soyosolution.com/validation-with-lightbox/index.php
+ For demo, please visit: http://tool.soyosolution.com/validation-with-lightbox
 
 * * *
 If there is any bugs in this plugin, please feel free to report us at: info@soyosolution.com
