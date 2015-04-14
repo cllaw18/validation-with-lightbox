@@ -5,23 +5,9 @@
     <title>Validation with Lightbox - Soyo Solution</title>
     <meta charset='utf-8'>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://soyosolution.com/res/js/google-analytics.js"></script>
     <script type="text/javascript" src="../../scripts/jquery-valid-lightbox-v1.1.js"></script>
     <link type="text/css" href="../../css/jquery-valid-lightbox-v1.1.css" rel="stylesheet" />
-    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
-    <style>
-    body {font-family:Arial;}
-    #header h1 {margin:10px 0 0 30px;}
-    #form {width:600px;}
-    .item {float:left; display:block;}
-    h6 {float:left; width:150px; margin:0; display:block; }
-    .input_panel {float:left; display:block; width:450px; margin:5px 0;}
-    #message_box {margin:20px 0 0 0;}
-    code {font-size:small; background:white; }
-    pre  {background:fff; border:1px dotted #aaa; overflow:auto; padding:5px;}
-    pre code {background:none;}
-    </style>    
-
+    <link href="../../css/demo.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="header">
