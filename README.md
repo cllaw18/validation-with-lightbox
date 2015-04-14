@@ -169,7 +169,7 @@ An overview of the value for config:
 
 * * *
 ## Update
-=== 13/04/2015 ===
+=== 13/04/2015 ===<br />
  Many Thanks for a user reporting the fatal problems at the github master-zip package. This update is for fixing the bugs
  - Changed file structure in github master zip folder for adding php version demo files
  - Fix the bugs if user submited the form, can't access the missing "success.html" webpage
