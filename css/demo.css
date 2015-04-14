@@ -10,13 +10,13 @@
 * Released under the MIT license
 * http://jquery.org/license
 *
-* Date: 2014-01-02
+* Last update date: 2014-04-13
 * =============================================
-* Current file name : style.css
+* Current file name : demo.css
 */
 
 article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
-body	{width:100%; min-height:100%; text-align:center;background-color:#fff; }
+body	{width:100%; min-height:100%; text-align:center;background-color:#fff; margin: 0px;}
 a {text-decoration: underline; color:rgba(11,72,107,1); font-family:Arial;}
 img {border:0;padding:0; margin:0;}
 div {display:inline-block; border:0px solid yellow; overflow:hidden; text-align:left; font-size:12px;}
@@ -61,3 +61,14 @@ table td {border:1px dotted #ccc;}
 #footer .inner {margin:auto; width:960px; margin:20px 20px; color:#fff; text-align:left; font-size:12px; line-height:16px; font-family:Arial;}
 #footer .inner .left {float:left; width:800px;}
 #footer .inner .right {float:left; }
+
+body {font-family:Arial;}
+#header h1 {margin:10px 0 0 30px;}
+#form {width:600px;}
+.item {float:left; display:block;}
+h6 {float:left; width:150px; margin:0; display:block; }
+.input_panel {float:left; display:block; width:450px; margin:5px 0;}
+#message_box {margin:20px 0 0 0;}
+code {font-size:small; background:white; }
+pre  {background:fff; border:1px dotted #aaa; overflow:auto; padding:5px;}
+pre code {background:none;}
