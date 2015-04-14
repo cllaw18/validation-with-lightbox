@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation with Lightbox - Soyo Solution</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery-valid-lightbox-v1.1.js"></script>
+    <link href="../../css/jquery-valid-lightbox-v1.1.css" rel="stylesheet" type="text/css" />
+    <style>
+    /*Style for this demo page.*/
+    body {font-family:Arial;}
+    form {float:left; width:50%; display:block;}
+    .item {float:left; display:block;}
+    h6 {float:left; width:150px; margin:0; display:block; }
+    .input_panel {float:left; display:block; width:450px; margin:5px 0;}
+    #message_panel {float:left; width:44%; border-left:1px dotted #ccc;  display:block; padding:0 2%}
+    #message_box {margin:30px 0 0 0; display:block;}
+    </style>
+</head>
+<body>
+<h1>Example</h1>
+    <form name="demo_form" method="POST" action="javascript:void(0)" onsubmit="return validation_check('success.html');">
+    <div class="item">
+        <h6><label>First Name</label></h6>
+        <div class="input_panel"><input type="text" id="firstname" name="firstname"></div>
+    </div>
+    <div class="item">
+        <h6><label>Last Name</label></h6>
+        <div class="input_panel"><input type="text" id="lastname" name="lastname"></div>
+    </div>
+    <div class="item">
+        <h6><label>Age</label></h6>
+        <div class="input_panel">
+            <select id="age" name="age">
+                <option value=""> - Please select the range -</option>
+                <option value="0">0-18</option>
+                <option value="19">19-35</option>
+                <option value="36">36-50</option>
+                <option value="50">50-90</option>
+                <option value="100">>100</option>
+           </select>
+        </div>
+    </div>
+    <div class="item">
+        <h6><label>Gender</label></h6>
+        <div class="input_panel">
+            <input type="radio" name="gender" value="male">Male<br>
+            <input type="radio" name="gender" value="female">Female    
+        </div>
+    </div>
+    <div class="item">
+        <h6><label>Service you like</label></h6>
+        <div class="input_panel">
+            <input type="checkbox" name="service" value="design">Design<br>
+            <input type="checkbox" name="service" value="cs">Customer Service
+        </div>
+    </div>
+    <div class="item">
+        <h6><label>Where to know us</label></h6>
+        <div class="input_panel">
+            <input type="checkbox" name="where_from" value="newspaper">newspaper<br>
+            <input type="checkbox" name="where_from" value="friend">friend<br>
+            <input type="checkbox" name="where_from" value="internet">internet
+        </div>
+    </div>
+    <div class="item">
+        <div class="input_panel">
+        <input id="submit" type="submit" value="Submit form" class="btn btn-primary" data-toggle="modal" role="button">
+        </div>
+    </div>
+    </form>
+
+    <div id="message_panel">
+        <p>Error Message (if any) : </p>
+        <div id="message_box"></div>
+    </div>
+</div>
+</body>
+</html>
+<!-- 
+Soyo Solution: 
+http://www.soyosolution.com
+
+Styled validation with lightbox demo link :
+http://tool.soyosolution.com/validation-with-lightbox/index.php
+-->
