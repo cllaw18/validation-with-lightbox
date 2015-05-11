@@ -4,7 +4,7 @@ validation-with-lightbox-v1.1
  Execute jQuery validation if submitting a form , display error and success message with lightbox, files which are included in this project:
 
 1.  css/  
-     1. jquery-valid-lightbox-v1_1.css  
+     1. jquery-valid-lightbox-v1_1.css (necessary file)
      2. demo.css
 2.  demo/  
      1. html  
@@ -15,7 +15,7 @@ validation-with-lightbox-v1.1
          1. index.php  
          2. success.php
 3.  scripts/  
-     a) jquery-valid-lightbox-v1.1.js
+     a) jquery-valid-lightbox-v1.1.js (necessary file)
 
 * * *
 **1i) css (folder)/jquery-valid-lightbox-v1_1.css**<br/>
